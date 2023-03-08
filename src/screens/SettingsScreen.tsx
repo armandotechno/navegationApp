@@ -1,9 +1,13 @@
+import { useContext } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { AuthContext } from '../context/AuthContext';
 
 export const SettingsScreen = () => {
 
   const insets = useSafeAreaInsets();
+
+  const { authState } = useContext( AuthContext );
 
   return (
     <>
@@ -14,10 +18,10 @@ export const SettingsScreen = () => {
       <View style={{backgroundColor:'#5D6D7E', flex: 1}}>
         <Text style={ styles.textoOpciones }>Cuenta</Text>
         <Text style={ styles.textoOpciones }>Acerca del dispositivo</Text>
-        <Text style={ styles.textoOpciones }>No sé que más poner</Text>
         <Text style={ styles.textoOpciones }>Batería</Text>
         <Text style={ styles.textoOpciones }>Caché</Text>
         <Text style={ styles.textoOpciones }>Pantalla</Text>
+        <Text style={ styles.textoOpciones }>{ JSON.stringify( authState, null, 4 ) }</Text>
         <Text style={{ ...styles.textoOpciones, alignSelf: "flex-end", top: 160, left: 30 }}>Final de esta pantalla</Text>
         <Image
           style={ styles.imagen } 
