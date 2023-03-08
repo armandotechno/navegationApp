@@ -1,9 +1,21 @@
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
+import { styles } from '../theme/appTheme';
+import { useContext } from 'react';
+import { AuthContext, AuthState } from '../context/AuthContext';
 
 export const ContactsScreen = () => {
+
+  const { signIn, authState } = useContext( AuthContext );
+  
+
   return (
-    <View>
-        <Text>Contacts Screen</Text>
+    <View style={ styles.globalMargin }>
+        <Text style={ styles.title }>Contacts Screen</Text>
+
+        { 
+          !authState.isLoggedIn && <Button title='Sing In' onPress={ signIn } />
+        }
+        
     </View>
   )
 }
