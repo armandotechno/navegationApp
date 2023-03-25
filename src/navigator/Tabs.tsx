@@ -14,14 +14,14 @@ export const Tabs = () => {
 
   return Platform.OS === 'ios'
       ? <TabsIOS />
-      : <TabsAndoid />
+      : <TabsAndroid />
 } 
 
 
 
 const BottomTabAndoid = createMaterialBottomTabNavigator();
 
-const TabsAndoid = () => {
+const TabsAndroid = () => {
   return (
     <BottomTabAndoid.Navigator
       sceneAnimationEnabled={ true }
